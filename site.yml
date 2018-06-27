@@ -1,0 +1,7 @@
+---
+- name: setup common configuration
+  hosts: localhost
+  become: true
+
+  roles:
+    - common

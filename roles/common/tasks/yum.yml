@@ -1,0 +1,15 @@
+- name: ensure we have yum-utils for later
+  yum:
+    update_cache: yes
+    name: yum-utils
+    state: latest
+
+- name: Update to latest
+  yum:
+    name: '*'
+    state: latest
+
+- name: Install base OS bits not in minimal
+  yum:
+    name: man, epel-release, vim-enhanced, whois, screen, irssi, git, bash-completion, bc
+    state: present

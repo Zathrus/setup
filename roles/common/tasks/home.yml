@@ -1,0 +1,8 @@
+# do all the git stuff
+
+- name: Create vim backup dir
+  become: false
+  file:
+    path: "{{home_dir}}/local/backup/"
+    state: directory
+    mode: 0700

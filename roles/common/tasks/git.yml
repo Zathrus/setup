@@ -1,0 +1,25 @@
+# should check that we have an ssh key; that $HOME isn't already a repo
+
+- name: init the user's home directory
+  command: git init
+  args:
+    chdir: $HOME
+    creates: $HOME/.git
+
+- name: add the remote repo
+  command: git remote add $reponame $repourl
+
+- name: fetch the repo to local copy
+  command: git fetch $reponame
+
+- name: checkout the branch
+  command: git checkout -f -b master $reponame/master
+
+- name: init subrepos (for vim)
+  command: git submodule init
+
+- name: fetch submodules
+  command: git submodule update
+
+- name: have vim update them
+  command: vim -c VundleUpdate -c qa

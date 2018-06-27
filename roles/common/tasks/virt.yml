@@ -1,0 +1,35 @@
+- name: Install virt bits
+  yum:
+    name: virt-manager
+    state: present
+
+- name: Base virt dir
+  file:
+    path: "{{ virt_dir }}"
+    owner: root
+    group: wheel
+    mode: 0775
+
+- name: Image dir
+  file:
+    path: "{{ virt_dir }}/images"
+    owner: "{{ virt_owner }}"
+    group: wheel
+    mode: 0775
+
+- name: ISO dir
+  file:
+    path: "{{ virt_dir}}/isos"
+    owner: "{{ virt_owner }}"
+    group: wheel
+
+- name: XML dir
+  file:
+    path: "{{ virt_dir }}/xml"
+    owner: "{{ virt_owner }}"
+    group: wheel
+    mode: 0775
+
+#- name: local permissions
+
+#- name: remote permissions

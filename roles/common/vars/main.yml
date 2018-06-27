@@ -1,0 +1,4 @@
+virt_dir: /srv/vm
+virt_owner: tom
+
+home_dir: /home/tom

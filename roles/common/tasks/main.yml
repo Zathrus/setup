@@ -1,0 +1,14 @@
+- name: yum updates
+  include_tasks: yum.yml
+
+- name: sshd config
+  include_tasks: sshd.yml
+
+- name: virt setup
+  include_tasks: virt.yml
+
+- name: home dir setup
+  include_tasks: home.yml
+
+- name: root setup
+  include_tasks: root.yml
