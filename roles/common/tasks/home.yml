@@ -3,6 +3,8 @@
 - name: Create vim backup dir
   become: false
   file:
-    path: "{{home_dir}}/local/backup/"
+    path: "{{ home_dir }}/local/backup/"
     state: directory
     mode: 0700
+
+# TODO: checkout the dotfiles repo, init submodule, have vim run once
