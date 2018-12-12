@@ -4,11 +4,17 @@
 - name: sshd config
   include_tasks: sshd.yml
 
+- name: sudo config
+  include_tasks: sudo.yml
+
 - name: virt setup
   include_tasks: virt.yml
 
 - name: home dir setup
-  include_tasks: { home.yml, become: no }
+  include_tasks:
+    file: home.yml
+    apply:
+      become: no
 
 - name: root setup
   include_tasks: root.yml
