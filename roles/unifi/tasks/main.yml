@@ -1,0 +1,15 @@
+- name: Setup rpmfusion repo
+  yum:
+    name: https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm, https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm
+    state: present
+
+- name: Install unifi packages
+  yum:
+    name: unifi-data, unifi
+    state: latest
+
+- name Start unifi services
+  service:
+    name: unifi
+    enabled: yes
+    state: started

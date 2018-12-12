@@ -3,3 +3,4 @@ virt_owner: tom
 
 user_id: tom
 home_dir: /home/tom
+git_dotfiles_url: https://github.com/Zathrus/dotfiles
