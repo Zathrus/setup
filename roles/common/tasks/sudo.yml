@@ -13,6 +13,6 @@
 
 - name: Add user to wheel group
   user:
-    name: {{ user_id }}
-    groups=wheel
-    append=yes
+    name: "{{ user_id }}"
+    groups: wheel
+    append: yes
