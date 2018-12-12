@@ -10,7 +10,7 @@
     name: unifi-data, unifi
     state: latest
 
-- name Start unifi services
+- name: Start unifi services
   service:
     name: unifi
     enabled: yes
