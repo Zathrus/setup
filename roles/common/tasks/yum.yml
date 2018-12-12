@@ -1,3 +1,9 @@
+- name: import distro dependant variables
+  include_vars: ""{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "{{ ansible_distribution }}.yml"
+
 - name: ensure we have yum-utils for later
   yum:
     update_cache: yes
@@ -6,7 +12,7 @@
 
 - name: Install base OS bits not in minimal
   yum:
-    name: man, epel-release, vim-enhanced, whois, screen, irssi, git, bash-completion, bc
+    name: man, "{{ epel_package }}", vim-enhanced, whois, screen, irssi, git, bash-completion, bc
     state: present
 
 - name: Update to latest
