@@ -8,7 +8,7 @@
   include_tasks: virt.yml
 
 - name: home dir setup
-  include_tasks: home.yml
+  include_tasks: { home.yml, become: no }
 
 - name: root setup
   include_tasks: root.yml

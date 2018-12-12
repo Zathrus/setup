@@ -1,5 +1,4 @@
 - name: Create vim backup dir
-  become: false
   file:
     path: "{{ home_dir }}/local/backup/"
     state: directory

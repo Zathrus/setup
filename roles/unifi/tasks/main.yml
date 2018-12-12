@@ -3,6 +3,8 @@
     name: https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm, https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm
     state: present
 
+# TODO: restrict to just unifi packages, as rpmfusion isn't completely safe
+
 - name: Install unifi packages
   yum:
     name: unifi-data, unifi
