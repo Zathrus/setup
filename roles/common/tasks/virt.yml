@@ -9,6 +9,7 @@
     owner: root
     group: wheel
     mode: 0775
+    state: directory
 
 - name: Image dir
   file:
@@ -16,12 +17,15 @@
     owner: "{{ virt_owner }}"
     group: wheel
     mode: 0775
+    state: directory
+    serole: virt_image_t
 
 - name: ISO dir
   file:
     path: "{{ virt_dir}}/isos"
     owner: "{{ virt_owner }}"
     group: wheel
+    state: directory
 
 - name: XML dir
   file:
@@ -29,6 +33,7 @@
     owner: "{{ virt_owner }}"
     group: wheel
     mode: 0775
+    state: directory
 
 #- name: local permissions
 
