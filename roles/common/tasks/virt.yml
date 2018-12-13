@@ -18,7 +18,7 @@
     group: wheel
     mode: 0775
     state: directory
-    serole: virt_image_t
+    setype: virt_image_t
 
 - name: ISO dir
   file:
