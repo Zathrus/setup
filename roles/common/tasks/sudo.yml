@@ -8,7 +8,7 @@
     dest: /etc/sudoers
     state: present
     regexp: '^%wheel'
-    line: '%wheel ALL=(ALL)'
+    line: '%wheel ALL=(ALL) ALL'
     validate: 'visudo -cf %s'
 
 - name: Add user to wheel group
