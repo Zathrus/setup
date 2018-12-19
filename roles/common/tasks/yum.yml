@@ -12,7 +12,7 @@
 
 - name: Install base OS bits not in minimal
   yum:
-    name: man, {{ epel_package }}, vim-enhanced, whois, screen, irssi, git, bash-completion, bc
+    name: man, {{ epel_package }}, vim-enhanced, whois, screen, irssi, git, bash-completion, bc, wget
     state: present
 
 - name: Update to latest
