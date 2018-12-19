@@ -29,14 +29,14 @@
     immediate: yes
     permanent: yes
     port: 8080/tcp
-    status: enabled
+    state: enabled
 
 - name: Add webui port to firewall
   firewalld:
     immediate: yes
     permanent: yes
     port: 8443/tcp
-    status: enabled
+    state: enabled
 
 - name: Start unifi services
   service:
