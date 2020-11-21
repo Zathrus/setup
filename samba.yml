@@ -1,0 +1,29 @@
+- name: Create users
+  user:
+    name: heather
+    group: heather
+    home: /home/heather
+    password: '!'
+    shell: '/usr/bin/nologin'
+
+- name: Manage samba through role
+  include_role:
+    name: bertvv.samba
+  vars:
+    samba_guest_account: nobody
+    samba_shares_root: "/srv"
+    samba_users:
+      - name: tom
+        password: tom
+      - name: heather
+        password: heather
+    samba_shares:
+      - name: music
+        comment: Read only share for music
+        browseable: yes
+        path: /srv/mp3/
+        public: yes
+      - name: pictures
+        broweable: yes
+        path: /srv/photo/
+        write_list: tom heather

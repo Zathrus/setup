@@ -26,5 +26,9 @@
     - name: root setup
       include_tasks: root.yml
 
-    #  roles:
-    #    - unifi
+    - name: Enable SMB sharing for music and pics
+      include_tasks: samba.yml
+
+    # TODO:
+      # unifi setup
+      # backup
