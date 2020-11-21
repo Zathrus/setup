@@ -1,3 +1,7 @@
+- name: Create group
+  group:
+    name: heather
+
 - name: Create users
   user:
     name: heather
