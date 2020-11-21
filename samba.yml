@@ -10,6 +10,13 @@
     password: '!'
     shell: '/usr/bin/nologin'
 
+- name: Open firewall ports
+  firewalld:
+    immediate: yes
+    permanent: yes
+    service: 'samba'
+    state: enabled
+
 - name: Manage samba through role
   include_role:
     name: bertvv.samba
