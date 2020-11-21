@@ -1,0 +1,14 @@
+- name: set vi completion
+  lineinfile:
+    dest=/root/.bash_profile
+    line="set -o vi"
+    state=present
+
+- name: enable persistant journals
+  file:
+    path: /var/log/journal/
+    state: directory
+    owner: root
+    group: systemd-journal
+    mode: 02755
+

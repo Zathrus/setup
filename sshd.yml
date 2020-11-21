@@ -1,0 +1,26 @@
+- name: Check for local authorized key
+  authorized_key:
+    manage_dir=yes
+    state=present
+    key='ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6n8ydXXEAdwMj16v6bUokXBslDjdGXM3/+AosVPMQka5FbrJguqRh75HUwA1bLQUct1o24Xo7o5Gyndjwrn3ik7icED9fAyeka5W497IhthY6DxvzvD11w6jD8HL8aQqPGcMd1NjvCddRDi85kS4HFUhIYe195f9PLtw5oPNfQwJRw5c83hMcHXH0kjatT6CouYDZEzdFJ611a8loUIVUSOYFJdboGj3GDKegytCi+BorMRPTDwAq60zWQ46h/kemaqXrRf0PlAlNtU9HvzLLNxlGM/taoKt3I3KFQtcpczJVUy2OI87iakHHrukLLvqb0JGdGRFanPpCZ0Tv4UOV'
+    comment='tsorense@ts470s.example.com'
+    user="{{ user_id }}"
+  become: no
+
+- name: Disable password auth for ssh
+  lineinfile:
+    dest=/etc/ssh/sshd_config
+    regexp="^PasswordAuthentication"
+    line="PasswordAuthentication no"
+    state=present
+  notify:
+    - restart sshd
+
+- name: Disable root via ssh
+  lineinfile:
+    dest=/etc/ssh/sshd_config
+    regexp="^PermitRootLogin"
+    line="PermitRootLogin no"
+    state=present
+  notify:
+    - restart sshd
