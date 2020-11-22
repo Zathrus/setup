@@ -23,6 +23,7 @@
   vars:
     samba_guest_account: nobody
     samba_shares_root: "/srv"
+    samba_server_min_protocol: 'SMB2'
     samba_users:
       - name: tom
         password: tom
